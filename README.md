@@ -1,2 +1,2 @@
 # 03-Text-adventure
-A text based adventure game
+An interactive text based game
