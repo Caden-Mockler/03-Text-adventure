@@ -1,0 +1,190 @@
+{
+  "verbs": [
+    { "v": "EXITS",   "map": "EXITS" },
+    { "v": "QUIT",    "map": "QUIT"  },
+    { "v": "NORTH",   "map": "NORTH" },
+    { "v": "N",       "map": "NORTH" },
+    { "v": "SOUTH",   "map": "SOUTH" },
+    { "v": "S",       "map": "SOUTH" },
+    { "v": "EAST",    "map": "EAST"  },
+    { "v": "E",       "map": "EAST"  },
+    { "v": "WEST",    "map": "WEST"  },
+    { "v": "W",       "map": "WEST"  },
+    { "v": "WAIT",    "map": "WAIT"  },
+    { "v": "RESTART",    "map": "RESTART"  },
+    { "v": "LEAVE ROOM",       "map": "LEAVE ROOM"  },
+    { "v": "GREEN HALL",    "map": "GREEN HALL"  },
+    { "v": "BLUE HALL",    "map": "BLUE HALL"  },
+    { "v": "RED HALL",    "map": "RED HALL"  },
+    { "v": "YELLOW HALL",    "map": "YELLOW HALL"  },
+    { "v": "USE KEYCARD",    "map": "USE KEYCARD"  },
+    { "v": "TAKE THE SUIT",    "map": "TAKE THE SUIT"  },
+    { "v": "LET HIM HAVE IT",    "map": "LET HIM HAVE IT"  },
+    { "v": "REC ROOM",    "map": "REC ROOM"  },
+    { "v": "CORNER",    "map": "CORNER"  }
+  ],
+
+  "rooms": {
+    "START": {
+      "name": "cell",
+      "desc": "You wake up to smoke, flashing red lights, and an alarm blaring in your ear. Objects float through the air unaffected by any gravity. You are in a small metal room with a blasted in door, giving you just enough room to exit if you'd like. The room is familiar to you but your not sure how. Checking yourself over you find you're wearing an orange jumpsuit and a trail of blood streaming down you neck from a nasty bump on your head. What would you like to do:(LEAVE ROOM/WAIT)", 
+      "exits": [
+        {
+          "verb": "WAIT",
+          "target": "DEAD",
+          "condition": ""
+        },
+        {
+          "verb": "LEAVE ROOM",
+          "target": "1CORNER",
+          "condition": ""
+        }
+      ],
+      "inventory": []
+    },
+    "DEAD": {
+      "name": "End",
+      "desc": "Hours turn to days as you stare at the wall, afraid of what may be beyond. You die of starvation...coward...(RESTART)",
+      "exits": [
+        {
+          "verb": "RESTART",
+          "target": "START",
+          "condition": ""
+        }
+      ],
+      "inventory": []
+    },
+    "1CORNER": {
+      "name": "Corner Hall",
+      "desc": "A smell of sweat and smoke hit you when you emerge from the metal cabin. In front of you runs a hallway with green stripes. To your right is another hall but with blue stripes. Where would you like to go? (GREEN HALL/BLUE HALL)",
+      "exits": [
+        {
+          "verb": "BLUE HALL",
+          "target": "BHALL",
+          "condition": ""
+        },
+        {
+          "verb": "GREEN HALL",
+          "target": "GHALL",
+          "condition": ""
+        }
+      ],
+      "inventory": []
+    },
+    "GHALL": {
+      "name": "Green Hall",
+      "desc": "A dim hallway with a series of black and red streak marks running all along the walls, ceiling, and floor. Masking the violent green stripes running along the walls. Doors dot the side of the hallway every few steps. All seem to be locked. At the far end stands a heavily secured door with an inscription reading, “EMERGENCY AIRLOCK. DO NOT OPEN WITHOUT PROPER EQUIPMENT.” In the center sits a small reinforced window. Looking through it, you spot the shattered remains of the rest of the hall, debris, and human bodies floating weightlessly in the vacuum of open space. Some wearing jumpsuits similar to yours, others in heavy militaristic equipment. All grey from the exposure to space. There is nothing else this way. (CORNER)",
+      "exits": [
+        {
+          "verb": "CORNER",
+          "target": "1CORNER",
+          "condition": ""
+        }  
+      ],
+      "inventory": []
+    },
+    "BHALL": {
+      "name": "Blue Hall",
+      "desc": "Neon blue streaks of paint highlight this otherwise unremarkable metal hallway. A few locked doors are scattered along with no real pattern. To your right one door remains partials opened. Jammed to stay so with a large metal pipe. Looking in reveals what seems to be a recreational area and cafeteria. At the end of the hall, the paint turns red. (REC ROOM/CAFETERIA/RED HALL)  ",
+      "exits": [
+        {
+          "verb": "RED HALL",
+          "target": "RHALL",
+          "condition": ""
+        },
+        {
+          "verb": "REC ROOM",
+          "target": "RECR",
+          "condition": ""
+        }
+      ],
+      "inventory": []
+    },
+    "RECR": {
+      "name": "REC ROOM",
+      "desc": "A mess of broken trays and silverware litter the ground. Amongst the mess, you find several bodies, recently deceased. Wearing similar outfits as your self and others in grey militaristic armor. Investigating further you see a key card sticking from the hand of a guard and hesitantly take it. You have found the command: USE KEYCARD. (BLUE HALL) ",
+      "exits": [
+        {
+          "verb": "BLUE HALL",
+          "target": "BHALL",
+          "condition": ""
+        }  
+      ],
+      "inventory": []
+    },
+    "RHALL": {
+      "name": "RED HALL",
+      "desc": "A red-streaked hall is featureless despite the large metal security door with large blast marks and indents. In the center of it displays a jutting metal box with a slit in it, perhaps to put something in.  On the far side of the hall is another door secured firmly in place with the words “EMERGENCY AIRLOCK. DO NOT OPEN WITHOUT PROPER EQUIPMENT” painted on the side. Both doors seem locked for the time being. (BLUE HALL)  ",
+      "exits": [
+        {
+          "verb": "BLUE HALL",
+          "target": "BHALL",
+          "condition": ""
+        },
+        {
+          "verb": "USE KEYCARD",
+          "target": "ARMORY",
+          "condition": ""
+        }    
+      ],
+      "inventory": []
+    },
+      "ARMORY": {
+        "name": "ARMORY",
+        "desc": "The massive doors scrape open with the metal screech echoing throughout the station. Inside is a series of smashed monitors and panels aranged along the walls of a square room. In the center is a round pillar with a series of racks where it seems weapons and armor once remained. You hear the familiar click and hum of a lazer pistol initializing its charge. A man in bloody military gear, similar to that of the others, is proped up weakly alongside the pillar with the pistol leveled at you. He is pale and sweating profusly, scattered in his lap rests multiple medical packs and bandages. His voice is hoarse and weak, 'I don't care what you think you're doing. I have the last suit. I'm leaving here in the last pod and you'll just have to deal with that, I'll send word theres someone still up here. Don't give me any trouble and I might even say you helped me, get a couple years off your sentence.' (TAKE THE SUIT/LET HIM HAVE GO)",
+        "exits": [
+          {
+            "verb": "TAKE THE SUIT",
+            "target": "ESCAPE",
+            "condition": ""
+          },
+          {
+            "verb": "LET HIM HAVE IT",
+            "target": "DEAD2",
+            "condition": ""
+          }    
+        ],
+        "inventory": []
+      },
+      "DEAD2": {
+        "name": "ARMORY, DEAD",
+        "desc": "You watch as the man painfully dresses in the space suit, wanting at some moments to help. As he leaves, you already see patches of crimson bleeding in to the light material of the suit. The door closes behind him and a muffled lazer blast is heard hitting the controls to the door. Securely locking you in. You find some food from guards own stockpiles and ration it for the day...then the next...and the next. As your vision turns black and your limbs turn weak, you wonder if the man ever made it to the escape pod, was found dead, or never intended to mention your existence. It doesn't matter now, this is your end. (RESTART)",
+        "exits": [
+          {
+            "verb": "RESTART",
+            "target": "START",
+            "condition": ""
+          } 
+        ],
+        "inventory": []
+      },
+      "ESCAPE": {
+        "name": "END",
+        "desc": "Your eyes narrow on him and you nod you head in acceptence. Feeling you are pacified the man lowers the gun a sets to finish his bandaging. Right as he is in the middle of the most seemingful painful part you sprint at full towards him. With no time to react and already focused on the pain, he does little to brace himself against your first and only needed blow to the side of his head. Seemingly unconcious you get to work on putting on the space suit. Checking the room once more before you leave, you find one monitor still active with the words 'AIRLOCK OVERRIDE' displayed in warning letters. As you press enter the station shifts harshly nearly throwing you off your feet as it accepts the vacuum of space. You leave the armory to find the yellow hall now open to you. Without wasting time you make your way to the escape pods and launch into the empty void. You don't know where you're going or even where exactly you were, but this is a chance for you to find out and survive. CONGRATULATIONS YOU SURVIVED! (RESTART)",
+        "exits": [
+          {
+            "verb": "RESTART",
+            "target": "START",
+            "condition": ""
+          } 
+        ],
+        "inventory": []
+    }
+  }
+}
+
+
+
+        
+
+        
+
+
+
+    
+  
+
+
+        
+      
+      
